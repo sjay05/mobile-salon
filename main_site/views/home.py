@@ -8,7 +8,4 @@ class IndexView(View):
     def get(self, request, *args, **kwargs):
         self.context['user'] = request.user
 
-        if request.user.is_authenticated:
-            return render(request, self.template_name, self.context)
-        else:
-            return redirect('/login')
+        return render(request, self.template_name, self.context)
