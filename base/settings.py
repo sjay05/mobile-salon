@@ -11,7 +11,8 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
-import django_heroku
+
+TESTING_LOCALLY = True
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -24,7 +25,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'iiusyc6lmr7n4p+=1*&k78#)hvcx#mfp-2$wm-$stc&%d9rwep'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+if TESTING_LOCALLY:
+    DEBUG = True
+else:
+    DEBUG = False
 
 ALLOWED_HOSTS = []
 
@@ -129,4 +133,9 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
 
-django_heroku.settings(locals())
+if not TESTING_LOCALLY:
+    try:
+        import django_heroku
+        django_heroku.settings(locals())
+    except:
+        pass
