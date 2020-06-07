@@ -34,4 +34,4 @@ Below are the functions of this website *must make a account*:
 ## Upcoming for Online Salon
 - User can track booking
 - Emails/Texts for bookings
-
+- Shop Ratings/Profile Pictures
