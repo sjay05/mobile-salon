@@ -17,7 +17,7 @@ class ShopCreateView(View):
         if request.user.is_authenticated:
             return render(request, self.template_name, self.context)
         else:
-            return redirect('/login')
+            return redirect('login')
 
     def post(self, request, *args, **kwargs):
         form = ShopCreateForm(request.POST)
