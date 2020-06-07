@@ -5,6 +5,8 @@ An online interface for salon business owners and customers.
 
 Live at: _______
 
+![](https://i.imgur.com/i3IywTu.png)
+
 ## Idea
 The purpose of this project is for people to get their haircuts done without having to go to the salon and get their haircuts 
 done risking catching COVID-19. The idea is that salon owners transform their business into a mobile truck that can satisfy 
@@ -32,3 +34,4 @@ Below are the functions of this website *must make a account*:
 ## Upcoming for Online Salon
 - User can track booking
 - Emails/Texts for bookings
+
