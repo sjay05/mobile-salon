@@ -1,0 +1,26 @@
+.title-left {
+    font-size: 25px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    padding-left: 25px;
+}
+
+#scissor_image {
+    margin-left: 15px;
+}
+
+.n-link {
+    font-weight: 100;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 15px;
+    margin-left: 10px;
+}
+
+.vert-line {
+    border-left: 2px solid black;
+    height: 35px;
+}
+
+#login-button {
+    margin-right: 10px;
+}

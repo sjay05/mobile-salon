@@ -1,0 +1,37 @@
+{% extends 'home_page.html' %}
+
+{% block content %}
+
+{% load widget_tweaks %}
+
+<div class="container col-md-offset-1">
+    <br><br>
+    <div class="card">
+        <h5 class="card-header">Review Your Booking</h5>
+        <div class="card-body">
+          <div class="alert alert-success" role="alert">
+            Successfully created Booking! Proceed!
+          </div>
+          <h5 class="card-title">Address</h5>
+          <p class="card-text">{{address}}</p>
+          <h5 class="card-title">Phone Number:</h5>
+          <p class="card-text">{{phone_num}}</p>
+          <h5 class="card-title">Choosen Shop:</h5>
+          <p class="card-text">{{shop_name}}</p>
+          <h5 class="card-title">Note:</h5>
+          <p class="card-text">
+                The barber you made the booking with will be in contact with you about
+                timings and when you will be expecting him/her.
+          </p>
+          <button type="button" class="btn btn-outline-dark btn-sm">
+            <a href="{% url 'index' %}">
+                Proceed To Home Page.
+            </a>
+        </button>
+        </div>
+      </div>
+
+</div>
+
+
+{% endblock %}

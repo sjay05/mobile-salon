@@ -1,0 +1,39 @@
+{% extends 'home_page.html' %}
+
+{% block content %}
+
+<div class="container text-center">
+    <div class="card" style="margin-top: 100px; width: 400px; margin-left: 350px;">
+        <div class="card-header">
+            Login 
+        </div>
+        <br>
+        <form action="login" method="post" style="padding-left: 50px; padding-right: 50px;">
+            {% csrf_token %}
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-danger" role="alert">
+                        Invalid Credentials!
+                    </div>
+                {% endfor %}
+            {% endif %}
+            <div class="form-group">
+                <label for="formGroupExampleInput">Username
+                    <a style="color: red"> *</a>
+                </label>
+                <input type="text" class="form-control" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Password
+                    <a style="color: red"> *</a>
+                </label>
+                <input type="password" class="form-control" name="password" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Log in!</button>
+            <br><br>
+            Don't have an account? <a href="{% url 'register' %}">Register</a>
+        </form>
+      </div>
+</div>
+
+{% endblock %}

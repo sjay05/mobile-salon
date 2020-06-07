@@ -1,0 +1,43 @@
+{% extends 'home_page.html' %}
+
+{% block content %}
+
+<div class="container text-center">
+    <div class="card" style="margin-top: 100px; width: 500px; margin-left: 300px;">
+        <div class="card-header">
+            Register
+        </div>
+        <br>
+        <form action="register" method="post" style="padding-left: 20px; padding-right: 20px;">
+            {% csrf_token %}
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-danger" role="alert">
+                        {{message}}
+                    </div>
+                {% endfor %}
+            {% endif %}
+            <div class="form-group">
+                <label for="formGroupExampleInput" style="text-align: left;">Username
+                    <a style="color: red"> *</a></label>
+                <input type="text" class="form-control" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Password
+                    <a style="color: red"> *</a></label>
+                <input type="password" class="form-control" name="password1" required>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Password (Confirm)
+                    <a style="color: red"> *</a></label>
+                <input type="password" class="form-control" name="password2" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Register!</button>
+            <br><br>
+            Already have an account? <a href="{% url 'login' %}">Login</a>
+        </form>
+            <br>    
+      </div>
+</div>
+
+{% endblock %}

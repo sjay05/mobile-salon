@@ -1,0 +1,109 @@
+{% include 'includes/boostrap.html' %}
+
+{% load static %}
+
+<style>
+    #imgg {
+        pointer-events: none;
+        position: absolute;
+        z-index: -1;
+    }
+</style>
+
+<link rel="stylesheet" type="text/css" href="{% static 'home_page.css' %}">
+
+<nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
+    <img src="https://i.pinimg.com/originals/7d/38/33/7d3833d5ebdb9bb4dc1277c5bf31eb75.png" id="scissor_image"
+        height="40px;" width="40px;">
+    <a class="navbar-brand title-left" href="{% url 'index' %}">
+        Mobile Salon
+    </a>
+
+    <div class="vert-line"></div>
+
+    <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link n-link" href="{% url 'shop' %}">
+                    Browse Shops
+                </a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link n-link" href="{% url 'create' %}">
+                    Create a Shop
+                </a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link n-link" href="{% url 'bookings' %}">
+                    View Bookings
+                </a>
+            </li>
+        </ul>
+
+        <span class="navbar-text">
+            {% if not user.is_authenticated %}
+            <button type="button" class="btn btn-outline-dark btn-sm" id="login-button">
+                <a href="{% url 'login' %}">
+                    Login
+                </a>
+            </button>
+            <button type="button" class="btn btn-outline-dark btn-sm">
+                <a href="{% url 'register' %}">
+                    Register
+                </a>
+            </button>
+            {% endif %}
+
+            {% if user.is_authenticated %}
+            {% if user.is_superuser %}
+            <button type="button" class="btn btn-outline-dark btn-sm text-danger" id="login-button">
+                <a href='admin' class="text-danger">
+                    Admin Panel
+                </a>
+            </button>
+            {% endif %}
+            <button type="button" class="btn btn-outline-dark btn-sm" id="login-button">
+                <a>Hello, {{user.username}}</a>
+            </button>
+            <button type="button" class="btn btn-outline-dark btn-sm">
+                <a href="{% url 'logout' %}">
+                    Logout
+                </a>
+            </button>
+            {% endif %}
+
+        </span>
+    </div>
+</nav>
+
+{% block content %}
+
+<div class="container" style="width: 2000px; padding-top: 30px;">
+    <div class="text-center">
+        <p style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-size: 30px;
+        font-weight: bold;">
+            Welome to the Mobile Salon!
+        </p>
+        <p style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-size: 13px;">
+            You don't go to the Salon...Instead the Salon comes to you...
+        </p>
+    </div>
+    <br>
+    <div>
+        <p style="line-height: 35px; font-size: 16px; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">
+            The purpose of this website is for people to get their haircuts done without having to go to the salon and risking catching COVID-19. The idea is that salon owners transform their business into a mobile truck that can satisfy a customer’s needs by going to their house and reducing the chances of infection. Below are the functions of this website. By simplifying the process of getting a haircut, one’s life becomes much easier during social distancing. 
+        </p>
+    </div>
+
+    <div style="display: flex;">
+<img style="display: block;
+margin-left: auto;
+margin-right: auto;"
+src="https://i.ibb.co/qx75yLM/Screen-Shot-2020-06-06-at-7-28-50-PM.png" alt="Screen-Shot-2020-06-06-at-3-43-23-PM" border="0" width="40%" height="45%"></a>
+
+</div>
+<br><br><br>
+
+{% endblock %}

@@ -1,0 +1,102 @@
+{% extends 'home_page.html' %}
+
+{% block content %}
+
+<style>
+    #addwith {
+        margin-top: 50px;
+    }
+
+    #card {
+        margin-right: 30px;
+        width: 20rem;
+        display: flex;
+        margin-top: 30px;
+        display: inline-block;
+    }
+
+    #booktext {
+        font-size: 13.5px;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+</style>
+
+<div class="container" style="margin-top: 50px;">
+    <p style="text-align: center; font-size: 30px; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">
+        All Shop Listings:
+    </p>
+</div>
+
+{% if edgecase %}
+
+<div class="container col-md-offset-1" id="addwith">
+    <div style="display: flex;">
+        {% for obj in shop_list %}
+        <div class="card" id="card">
+            <div class="card-body">
+                <h5 class="card-title" style="text-align: center;">
+                    {{obj.shop_name}}
+                </h5>
+                <p id="booktext">
+                    {{obj.shop_description|linebreaks}}
+                </p>
+                <div class="button-box col-lg-12" style="text-align: center;">
+                    <a href="{% url 'book' obj.id %}" class="btn btn-outline-dark btn-sm">
+                        Book!
+                    </a>
+                    &nbsp;
+                    {% if obj.shop_owner == user %}
+                    <form method="POST" style="display: inline;">
+                        {% csrf_token %}
+                        <input type="hidden" name="obj_id" value={{obj.id}}>
+                        <button type="submit" class="btn btn-outline-dark btn-sm text-danger">Delete!</button>
+                    </form>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endif %}
+
+
+{% if not edgecase %}
+
+<div class="container col-md-offset-1" id="addwith">
+    {% for sub_list in shop_list %}
+    <div style="display: flex;">
+        {% for obj in sub_list %}
+        <div class="card" id="card">
+            <div class="card-body">
+                <h5 class="card-title" style="text-align: center;">
+                    {{obj.shop_name}}
+                </h5>
+                <p id="booktext">
+                    {{obj.shop_description|linebreaks}}
+                </p>
+                <div class="button-box col-lg-12" style="text-align: center;">
+                    <a href="{% url 'book' obj.id %}" class="btn btn-outline-dark btn-sm">
+                        Book!
+                    </a>
+                    &nbsp;
+                    {% if obj.shop_owner == user %}
+                    <form method="POST" style="display: inline;">
+                        {% csrf_token %}
+                        <input type="hidden" name="obj_id" value={{obj.id}}>
+                        <button type="submit" class="btn btn-outline-dark btn-sm text-danger">Delete!</button>
+                    </form>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% endfor %}
+</div>
+
+
+{% endif %}
+
+{% endblock %}
