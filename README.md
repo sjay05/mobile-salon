@@ -3,7 +3,7 @@ An online interface for salon business owners and customers.
 
 > **Recommended to use Chrome**.
 
-Live at: https://secure-meadow-25838.herokuapp.com/ 
+Live at: _______
 
 ## Idea
 The purpose of this project is for people to get their haircuts done without having to go to the salon and get their haircuts 
