@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 
 class Shop(models.Model):
     shop_name = models.CharField(max_length=500, unique=True)
-    shop_description = models.CharField(max_length=1000)
+    shop_description = models.CharField(max_length=2000)
     shop_owner = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):

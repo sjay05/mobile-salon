@@ -11,7 +11,7 @@ class ShopCreateForm(forms.Form):
     )
     shop_description = forms.CharField(
         label='Shop Desc: (Max 150 words.)',
-        max_length=150,
+        max_length=500,
         widget=forms.Textarea(
             attrs={
                 'placeholder': 'Write your Shop Description '
