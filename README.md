@@ -3,8 +3,6 @@ An online interface for salon business owners and customers.
 
 > **Recommended to use Chrome**.
 
-Live at: _______
-
 ![](https://i.imgur.com/i3IywTu.png)
 
 ## Idea
